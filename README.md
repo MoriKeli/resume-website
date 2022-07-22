@@ -5,4 +5,4 @@ Technologies used:
   - HTML
   - CSS
   - JS
-  -Django
+  - Django
