@@ -1,0 +1,352 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+   <meta charset="utf-8">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+   <link rel="stylesheet" href="{% static 'default.css' %}">
+	<link rel="stylesheet" href="{% static 'layout.css' %}">
+   <link rel="stylesheet" href="{% static 'media-queries.css' %}">
+   <link rel="stylesheet" href="{% static 'magnific-popup.css' %}">
+	<script src="{% static 'modernizr.js' %}"></script>
+	<link rel="shortcut icon" href="{% static 'favicon.png' %}" >
+	<title>Mori Keli Portofolio</title>
+</head>
+
+<body>
+   <header id="home">
+      <nav id="nav-wrap">
+         <a class="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
+	      <a class="mobile-btn" href="#" title="Hide navigation">Hide navigation</a>
+
+         <ul id="nav" class="nav">
+            <li><a href="{% url 'homepage' %}">Home</a></li>
+            {% if user.is_authenticated %}<li><a href="{% url 'upload' %}">Upload project</a></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>{% endif %}
+            <li><a class="smoothscroll" href="#about">About</a></li>
+	         <li><a class="smoothscroll" href="#resume">Resume</a></li>
+            <li><a class="smoothscroll" href="#portfolio">Works</a></li>
+            <li><a class="smoothscroll" href="#testimonials">Testimonials</a></li>
+            <li><a class="smoothscroll" href="#contact">Contact</a></li>
+         </ul>
+
+      </nav>
+
+      <div class="row banner">
+         <div class="banner-text">
+            {% for message in messages %}
+            <div id="message-success">
+               <i class="fa fa-check"></i>{{message}}<br>
+            </div>
+            {% endfor %}
+            <h1 class="responsive-headline">I'm Mori Keli.</h1>
+            <h3>I'm a Nairobi based <span>backend web-developer</span>, <span>Python programmer</span> and <span>A.I & M.L. enthusiast</span> creating awesome and
+            effective visual identities for companies of all sizes around the globe. I also have basic knowledge in <span>HTML</span>, <span>CSS</span>, <span>JS</span> & <span>Bootstrap.</span> Let's <a class="smoothscroll" href="#about">start scrolling</a>
+            and learn more <a class="smoothscroll" href="#about">about me</a>.</h3>
+            <hr />
+            <ul class="social">
+               <li><a href="https://www.facebook.com/kelimbithi" target="_blank"><i class="fa fa-facebook"></i></a></li>
+               <li><a href="https://www.twitter.com/kelimori" target="_blank"><i class="fa fa-twitter"></i></a></li>
+               <li><a href="https://www.instagram.com/mori.keli22" target="_blank"><i class="fa fa-instagram"></i></a></li>
+               <li><a href="https://www.github.com/MoriKeli"><i class="fa fa-github"></i></a></li>
+            </ul>
+         </div>
+      </div>
+
+      <p class="scrolldown">
+         <a class="smoothscroll" href="#about"><i class="icon-down-circle"></i></a>
+      </p>
+   </header>
+
+   <section id="about">
+      <div class="row">
+         <div class="three columns">
+            <img class="profile-pic"  src="{{fetch_user.profile.dp.url}}" alt="profile_pic">
+         </div>
+         <div class="nine columns main-col">
+            <h2>About Me</h2>
+            <p>
+               I'm Mori Mbithi Keli. I'm a Kenyan and I'm 21 years old. I'm a cool nerd residing in "the green city under the sun" - <span>Nairobi, Kenya.</span><br>
+               I wrote my first code on September 2020 after getting my laptop. Python was the first programming language I learned. Due to its simplicity,
+               I dived into learning more about Python and its various modules and their applications areas.<br>
+               I use OpenCV for building applications for computer vision, Django for backend web development, and Matplotlib for statistics in some web applications and Python programs.
+               <br>
+               I'm currenty learning A.I. and Machine Learning with Python. 
+            </p>
+            <div class="row">
+               <div class="columns contact-details">
+                  <h2>Contact Details</h2>
+                  <p class="address">
+						   <span>Mori Keli</span><br>
+						   <span>Kayole Estate<br>
+						         Nairobi, Kenya
+                     </span><br>
+						   <span><a href="{% url 'homepage' %}">+2541023456789</a></span><br>
+                     <span><a href="{% url 'homepage' %}">info@email.com</a></span>
+					   </p>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+   <section id="resume">
+      <div class="row education">
+         <div class="three columns header-col">
+            <h1><span>Education</span></h1>
+         </div>
+         <div class="nine columns main-col">
+            <div class="row item">
+               <div class="twelve columns">
+                  <h3>Rongo University - Migori, Kenya</h3>
+                  <p class="info">Bsc. in Computer Science <span>&bull;</span> <em class="date">November 2020 - present</em></p>
+                  <p>
+                  I'm a sophomore studying Computer Science. I'm an active member in Google Developers Student Club (GDSC) since I was a first year.
+                  </p>
+               </div>
+            </div> 
+            <div class="row item">
+               <div class="twelve columns">
+                  <h3>The Kitondo School</h3>
+                  <p class="info">O-level <span>&bull;</span> <em class="date">February 2016 - November 2019</em></p>
+                  <p>
+                     I was admitted in Kitondo School on 10th Febraury 2016. I studied compulsory subjects (Mathematics, English and Swahili) in addition to Chemistry, Physics, History & Computer Studies for 4 years.
+                     I sat for my KCSE national exams on November 2019 and attained a B plain. <br>I also played football and sometimes basketball.
+                  </p>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div class="row work">
+         <div class="three columns header-col">
+            <h1><span>Work</span></h1>
+         </div>
+         <div class="nine columns main-col">
+            <div class="row item">
+               <div class="twelve columns">
+                  <h3>Awesome Design Studio</h3>
+                  <p class="info">Senior UX Designer <span>&bull;</span> <em class="date">March 2010 - Present</em></p>
+                  <p>
+                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+                  Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
+                  ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
+                  Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. Nullam dictum felis eu pede mollis pretium.
+                  </p>
+               </div>
+            </div>
+            <div class="row item">
+               <div class="twelve columns">
+                  <h3>Super Cool Studio</h3>
+                  <p class="info">UX Designer <span>&bull;</span> <em class="date">March 2007 - February 2010</em></p>
+                  <p>
+                  This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.
+                  Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem
+                  nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan
+                  ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat
+                  </p>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div class="row skill">
+         <div class="three columns header-col">
+            <h1><span>Skills</span></h1>
+         </div>
+         <div class="nine columns main-col">
+            <p>
+               Below are the various tools I use to accomplish my work. <b>What I can't compile with C/C++ or Java, I happily run and debug it with Python.</b>
+               <br>
+               <b>HTML, CSS, Bootstrap & JS are tools I commonly use for frontend web development and Django for backend development.
+                  <ul>
+                     <li>&bull; HTML, CSS & JS - for structural, presentable and functional website respectively.</li>
+                     <li>&bull; Bootstrap - for mobile-fast and responsive websites.</li>
+                     <li>&bull; Django - for rapid server-side web development.</li>
+               </b>
+            </p>
+				<div class="bars">
+				   <ul class="skills">
+                  <li><span class="bar-expand html5"></span><em><img id="icons" src="{% static 'html.png' %}" alt="icon"> HTML5</em></li>
+                  <li><span class="bar-expand python"></span><em><img id="icons" src="{% static 'python.png' %}" alt="icon"> Python</em></li>
+                  <li><span class="bar-expand django"></span><em><img id="icons" src="{% static 'django.jpeg' %}" alt="icon"> Django</em></li>
+						<li><span class="bar-expand css"></span><em><img id="icons" src="{% static 'css3.png' %}" alt="icon"> CSS</em></li>
+                  <li><span class="bar-expand bootstrap"></span><em><img id="icons" src="{% static 'bootstrap.png' %}" alt="icon"> Bootstrap</em></li>
+                  <li><span class="bar-expand javascript"></span><em><img id="icons" src="{% static 'js.png' %}" alt="icon"> JavaScript</em></li>
+					</ul>
+				</div>
+			</div>
+      </div>
+   </section>
+   {% if portofolio %}
+   <section id="portfolio">
+      <div class="row">
+         <div class="twelve columns collapsed">
+            <h1>Check Out Some of My Works.</h1>
+            <div id="portfolio-wrapper" class="bgrid-quarters s-bgrid-thirds cf">
+               {% for port in portofolio reversed %}
+          	   <div class="columns portfolio-item">
+                  <div class="item-wrap">
+                     <a href="#modal-{{port.project_id}}" title="{{port.project_name}}">
+                        <img alt="" src="{{port.project_thumbnail.url}}">
+                        <div class="overlay">
+                           <div class="portfolio-item-meta">
+          					      <h5>{{port.project_name}}</h5>
+                              <p>{{port.category}}</p>
+          					   </div>
+                        </div>
+                        <div class="link-icon"><i class="icon-plus"></i></div>
+                     </a>
+                  </div>
+          		</div>
+                
+         <div id="modal-{{port.project_id}}" class="popup-modal mfp-hide">
+		      <img class="scale-with-grid" src="{{port.project_thumbnail.url}}" alt="image"/>
+		      <div class="description-box">
+			      <h4>{{port.project_name}}</h4>
+			      <p>{{port.description}}</p>
+               <span class="categories"><i class="fa fa-tag"></i>{{port.category}}</span>
+		      </div>
+            <div class="link-box">
+               {% if user.is_authenticated %}
+               <a href="{% url 'edit_project' port.project_id %}">Edit Project | </a>
+               {% endif %}
+               <a href="{{port.github_link}}" target="_blank">Details</a>
+		         <a class="popup-modal-dismiss">Close</a>
+            </div>
+	      </div>
+         {% endfor %}
+      </div>
+   </section>
+   {% endif %}
+   <section id="testimonials">
+      <div class="text-container">
+         <div class="row">
+            <div class="two columns header-col">
+               <h1><span>Client Testimonials</span></h1>
+            </div>
+            <div class="ten columns flex-container">
+               <div class="flexslider">
+                  <ul class="slides">
+                     <li>
+                        <blockquote>
+                           <p>Your work is going to fill a large part of your life, and the only way to be truly satisfied is
+                           to do what you believe is great work. And the only way to do great work is to love what you do.
+                           If you haven't found it yet, keep looking. Don't settle. As with all matters of the heart, you'll know when you find it.
+                           </p>
+                           <cite>Steve Jobs</cite>
+                        </blockquote>
+                     </li>
+
+                     <li>
+                        <blockquote>
+                           <p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.
+                           Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem
+                           nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris.
+                           </p>
+                           <cite>Mr. Adobe</cite>
+                        </blockquote>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </div> 
+       </div>
+   </section>
+
+   <section id="contact">
+         <div class="row section-head">
+            <div class="two columns header-col">
+               <h1><span>Get In Touch.</span></h1>
+            </div>
+            <div class="ten columns">
+                  <p class="lead">
+                     Thank you for viewing my profile. If you like to get in touch with me, please fill out the form below
+                      or you can click the link with my phone number. I'm only a phone call away.
+                  </p>
+            </div>
+         </div>
+
+         <div class="row">
+            <div class="eight columns">
+               <form action="" method="post" id="contactForm">
+                  {% csrf_token %}
+					<fieldset>
+                  <div>
+						   <label for="contactName">Name <span class="required">*</span></label>
+						   <input type="text" value="" size="35" id="contactName" name="contactName">
+                  </div>
+                  <div>
+						   <label for="contactEmail">Email <span class="required">*</span></label>
+						   <input type="text" value="" size="35" id="contactEmail" name="contactEmail">
+                  </div>
+                  <div>
+						   <label for="contactSubject">Subject</label>
+						   <input type="text" value="" size="35" id="contactSubject" name="contactSubject">
+                  </div>
+                  <div>
+                     <label for="contactMessage">Message <span class="required">*</span></label>
+                     <textarea cols="50" rows="10" id="contactMessage" name="contactMessage"></textarea>
+                  </div>
+                  <div>
+                     <button class="submit">Submit</button>
+                     <span id="image-loader">
+                        <img alt="" src="{% static 'loader.gif' %}">
+                     </span>
+                  </div>
+					</fieldset>
+				   </form>
+
+            </div>
+
+
+            <aside class="four columns footer-widgets">
+               <div class="widget widget_contact">
+					   <h4>Address and Phone</h4>
+					   <p class="address">
+						   Mori Keli<br>
+						   Kayole Estate<br>
+						   Nairobi, Kenya<br>
+						   <span><a href="{% url 'homepage' %}">+254112846258</a></span>
+					   </p>
+				   </div>
+            </aside>
+      </div>
+
+   </section>
+
+   <footer>
+
+      <div class="row">
+         <div class="twelve columns">
+            <ul class="social-links">
+               <li><a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+               <li><a href="https://www.twitter.com/kelimori" target="_blank"><i class="fa fa-twitter"></i></a></li>
+               <li><a href="https://www.instagram.com/mori.keli22" target="_blank"><i class="fa fa-instagram"></i></a></li>
+               <li><a href="https://www.github.com/MoriKeli"><i class="fa fa-github"></i></a></li>
+            </ul>
+
+            <ul class="copyright">
+               <li>&copy; Copyright {% now "Y" %}</li>
+               <li>Design by <a href="http://www.styleshout.com/" title="Styleshout" target="_blank">Styleshout</a></li>   
+            </ul>
+
+         </div>
+
+         <div id="go-top"><a class="smoothscroll" title="Back to Top" href="#home"><i class="icon-up-open"></i></a></div>
+
+      </div>
+
+   </footer>
+
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+   <script>window.jQuery || document.write('<script src="{% static "jquery-1.10.2.min.js" %}"><\/script>')</script>
+   <script type="text/javascript" src="{% static 'jquery-migrate-1.2.1.min.js' %}"></script>
+   <script src="{% static 'jquery.flexslider.js' %}"></script>
+   <script src="{% static 'waypoints.js' %}"></script>
+   <script src="{% static 'jquery.fittext.js' %}"></script>
+   <script src="{% static 'magnific-popup.js' %}"></script>
+   <script src="{% static 'init.js' %}"></script>
+
+</body>
+</html>
